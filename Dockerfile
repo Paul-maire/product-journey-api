@@ -1,0 +1,17 @@
+FROM node:12.18-alpine
+
+RUN mkdir -p /product-journey-api
+COPY . /product-journey-api
+WORKDIR /product-journey-api
+
+RUN set -ex; \
+	apk add postgresql-client; \
+	yarn global add knex pg;
+
+RUN yarn install
+
+ENV NODE_ENV=development
+
+COPY . /product-journey-api
+
+EXPOSE 5000
