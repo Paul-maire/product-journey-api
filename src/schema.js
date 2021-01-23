@@ -12,7 +12,7 @@ module.exports = gql`
   }
 
   type Mutation {
-    saveIdea(idea: IdeaInput!): Idea
+    saveIdea(idea: IdeaInput): Idea
   }
 
   type Idea {
@@ -22,9 +22,10 @@ module.exports = gql`
     content: String!
 
     vote: Boolean
-
     votes: [Vote!]!
     votes_count: Int!
+
+    comments: [Comment!]!
   }
   input IdeaInput {
     id: Int
@@ -42,5 +43,16 @@ module.exports = gql`
     id: Int
 
     idea_id: Int
+  }
+
+  type Comment {
+    id: Int!
+
+    content: String!
+  }
+  input CommentInput {
+    id: Int
+
+    content: String
   }
 `
