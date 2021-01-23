@@ -2,7 +2,6 @@ const casual = require('casual').fr_FR
 
 module.exports = params => ({
     id: params ? params.id : casual.integer(0, 100),
-    title: casual.title,
-    content: casual.text,
-    votes_count: casual.integer(0, 1000)
+    idea_id: casual.integer(0, 100),
+    vote: casual.coin_flip
 }) 

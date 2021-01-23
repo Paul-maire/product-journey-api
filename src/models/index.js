@@ -3,4 +3,5 @@ const knex = require('knex')(config)
 
 module.exports = {
   Idea: require('./idea')(knex),
+  Vote: require('./vote')(knex),
 }

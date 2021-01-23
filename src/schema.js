@@ -20,11 +20,27 @@ module.exports = gql`
 
     title: String!
     content: String!
+
+    vote: Boolean
+
+    votes: [Vote!]!
+    votes_count: Int!
   }
   input IdeaInput {
     id: Int
 
     title: String
     content: String
+  }
+
+  type Vote {
+    id: Int!
+
+    idea_id: Int!
+  }
+  input VoteInput {
+    id: Int
+
+    idea_id: Int
   }
 `

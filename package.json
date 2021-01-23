@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "up": "docker-compose up",
-    "sh": "docker-compose exec plants-api sh",
+    "sh": "docker-compose exec product-journey-api sh",
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
     "db": "docker-compose exec db psql -U paul"

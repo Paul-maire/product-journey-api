@@ -33,6 +33,12 @@ module.exports = table => knex => ({
 			? this.update(where, entity)
 			: this.insert(entity)
 	},
+	count(where) {
+		return this.table()
+			.select('id')
+			.where(where)
+			.count('id')
+	},
 	// Utils
 	table: _ => knex(table)
 })
