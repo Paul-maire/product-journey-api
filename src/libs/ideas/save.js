@@ -1,5 +1,3 @@
 const { Idea } = require('../../models')
 
-const save = idea => Idea.save(idea)
-
-module.exports = save
+module.exports = idea => Idea.save(idea)

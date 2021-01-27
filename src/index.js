@@ -16,12 +16,14 @@ const server = new ApolloServer({
 
     Query: require('./queries'),
     Mutation: require('./mutations'),
+    Subscription: require('./subscriptions'),
     ...require('./types'),
   },
   mocks: require('./mocks'),
-  mockEntireSchema: true
+  mockEntireSchema: true,
+  plugins: [require('./plugins')]
 })
 
 server
   .listen(process.env.PORT || 5000)
-  .then(({ url }) => console.log(`🚀 Server is running on ${url}`))
+  .then(({ url, subscriptionsUrl }) => console.log(`🚀 Server is running on ${url} \n 📣 Subscription is running on ${subscriptionsUrl}`))

@@ -35,9 +35,9 @@ module.exports = table => knex => ({
 	},
 	count(where) {
 		return this.table()
-			.select('id')
+			.select(`${table}.id`)
 			.where(where)
-			.count('id')
+			.count(`${table}.id`)
 	},
 	// Utils
 	table: _ => knex(table)

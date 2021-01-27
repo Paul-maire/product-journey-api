@@ -6,13 +6,21 @@ module.exports = gql`
   scalar GraphQLTime
   scalar GraphQLDateTime
 
+  type Subscription {
+    commentAdded: Comment
+  }
+
   type Query {
     ideas: [Idea!]!
     idea(id: Int): Idea!
+
+    comments(idea_id: Int): [Comment!]!
   }
 
   type Mutation {
     saveIdea(idea: IdeaInput): Idea
+
+    saveComment(comment: CommentInput): Comment
   }
 
   type Idea {
@@ -48,11 +56,13 @@ module.exports = gql`
   type Comment {
     id: Int!
 
+    idea_id: Int!
     content: String!
   }
   input CommentInput {
     id: Int
 
-    content: String
+    idea_id: Int!
+    content: String!
   }
 `
